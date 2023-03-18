@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Takes a markdown file with bash code blocks, executes the bash commands and
 returns the original markdown content with output blocks containing the
@@ -8,6 +7,7 @@ executed command's results
 import argparse
 import re
 import subprocess
+import sys
 
 
 def process_content(input_lines):
@@ -42,16 +42,24 @@ def process_content(input_lines):
         print(line, end="")
 
 
-if __name__ == "__main__":
+def cli_arg_parser(args=None):
     parser = argparse.ArgumentParser(
         prog="bashdown",
         description="Processes in-line bash in markdown files",
         epilog="For more information please see the docs",
     )
     parser.add_argument("filename")
-    args = parser.parse_args()
+    return parser.parse_args()
 
-    with open(args.filename, "r") as file:
+
+def main():
+    args = cli_arg_parser(sys.argv[1:])
+
+    with open(args.filename, "r", encoding="utf8") as file:
         content = file.readlines()
 
     process_content(content)
+
+
+if __name__ == "__main__":
+    main()

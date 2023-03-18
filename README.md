@@ -24,13 +24,13 @@ significantly fewer dependencies due to it's much more limited scope.
 Basic usage is as follows:
 
 ```bash
-# ./bashdown README.bashdown > README.md
+# bashdown README.bashdown > README.md
 ```
 
 Full usage information can be obtained from the built in help.
 
 ```bash
-./bashdown --help
+bashdown --help
 ```
 
 ```output
@@ -41,7 +41,7 @@ Processes in-line bash in markdown files
 positional arguments:
   filename
 
-optional arguments:
+options:
   -h, --help  show this help message and exit
 
 For more information please see the docs
