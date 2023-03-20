@@ -20,12 +20,14 @@ def process_content(input_lines):
                    and outputs the result in an output block underneath the code.
     """
     bash = False
+    processed_lines = []
     for line in input_lines:
         if line == "```\n":
             bash = False
             if not output == "\n```output":
-                print(line, end="")
-                print(re.sub("\n$", "", output))
+                processed_lines.append(line)
+                # processed_lines.append(re.sub("\n$", "", output))
+                processed_lines.append(output)
 
         if bash:
             if not line.startswith("#"):
@@ -39,7 +41,8 @@ def process_content(input_lines):
             bash = True
             output = "\n```output"
 
-        print(line, end="")
+        processed_lines.append(line)
+    return processed_lines
 
 
 def cli_arg_parser(args=None):
@@ -49,7 +52,7 @@ def cli_arg_parser(args=None):
         epilog="For more information please see the docs",
     )
     parser.add_argument("filename")
-    return parser.parse_args()
+    return parser.parse_args(args)
 
 
 def main():
@@ -58,7 +61,8 @@ def main():
     with open(args.filename, "r", encoding="utf8") as file:
         content = file.readlines()
 
-    process_content(content)
+    for line in process_content(content):
+        print(line, end="")
 
 
 if __name__ == "__main__":

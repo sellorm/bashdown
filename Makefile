@@ -6,3 +6,5 @@ README.md: README.bashdown bashdown
 build:
 	poetry build
 
+test:
+	python3 -m unittest
