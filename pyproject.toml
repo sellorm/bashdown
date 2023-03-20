@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bashdown"
-version = "0.2.0"
+version = "0.3.0"
 description = "Executes in-line bash in markdown files"
 authors = ["Mark Sellors <github@5vcc.com>"]
 readme = "README.md"
@@ -9,7 +9,7 @@ homepage = "https://blog.sellorm.com/projects"
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 
 
 [build-system]
