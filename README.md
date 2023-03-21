@@ -41,7 +41,7 @@ Processes in-line bash in markdown files
 positional arguments:
   filename
 
-options:
+optional arguments:
   -h, --help  show this help message and exit
 
 For more information please see the docs

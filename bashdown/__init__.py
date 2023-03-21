@@ -9,7 +9,7 @@ import re
 import subprocess
 import sys
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"
 
 
 def process_content(input_lines):
@@ -48,16 +48,25 @@ def process_content(input_lines):
 
 
 def cli_arg_parser(args=None):
+    """
+    Parses cli arguments for the command cli tool
+    """
     parser = argparse.ArgumentParser(
         prog="bashdown",
-        description="Processes in-line bash in markdown files",
+        # description="Processes in-line bash in markdown files",
         epilog="For more information please see the docs",
     )
-    parser.add_argument("filename")
+    # group = parser.add_mutually_exclusive_group(required=True)
+    # group = parser.add_mutually_exclusive_group()
+    parser.add_argument("filename", help="File to process")
+    parser.add_argument('-v', '--version', action='version', version= __version__)
     return parser.parse_args(args)
 
 
 def main():
+    """
+    Kicks everything off for the cli tool
+    """
     args = cli_arg_parser(sys.argv[1:])
 
     with open(args.filename, "r", encoding="utf8") as file:

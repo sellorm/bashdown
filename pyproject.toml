@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bashdown"
-version = "0.4.0"
+version = "0.5.0"
 description = "Executes in-line bash in markdown files"
 authors = ["Mark Sellors <github@5vcc.com>"]
 readme = "README.md"
