@@ -58,7 +58,7 @@ def cli_arg_parser(args=None):
     )
     # group = parser.add_mutually_exclusive_group(required=True)
     # group = parser.add_mutually_exclusive_group()
-    parser.add_argument("filename", help="File to process")
+    parser.add_argument("filename", help="Markdown file to process")
     parser.add_argument('-v', '--version', action='version', version= __version__)
     return parser.parse_args(args)
 
